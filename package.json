@@ -1,5 +1,9 @@
 {
-  "name": "marketing-site",
+  "name": "openbio-os.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenBio-OS/openbio-os.github.io"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",
