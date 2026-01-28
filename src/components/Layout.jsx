@@ -126,7 +126,7 @@ const Layout = ({ children }) => {
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Resources</h3>
               <ul className="space-y-2">
                 <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="https://github.com/openbio-os" className="text-gray-400 hover:text-primary transition-colors">Source</a></li>
+                <li><a href="https://github.com/openbio-os" className="text-gray-400 hover:text-primary transition-colors">Source Code</a></li>
                 {/* <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Support</a></li> */}
               </ul>
             </div>
