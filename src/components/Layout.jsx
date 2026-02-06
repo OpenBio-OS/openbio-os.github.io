@@ -90,6 +90,13 @@ const Layout = ({ children }) => {
                   {link.name}
                 </NavLink>
               ))}
+              <Link
+                to="/download"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 rounded-md font-bold bg-primary hover:bg-primary-hover text-white transition-colors"
+              >
+                Download
+              </Link>
             </div>
           </div>
         )}

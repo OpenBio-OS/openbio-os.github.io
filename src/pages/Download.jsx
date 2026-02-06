@@ -11,12 +11,18 @@ const Download = () => {
     const platform = window.navigator.platform.toLowerCase();
     const userAgent = window.navigator.userAgent.toLowerCase();
 
-    if (platform.includes('mac') || userAgent.includes('mac')) {
-      setDetectedOS('macOS');
-    } else if (platform.includes('win') || userAgent.includes('win')) {
-      setDetectedOS('Windows');
-    } else if (platform.includes('linux') || userAgent.includes('linux')) {
-      setDetectedOS('Linux');
+    // Check if device is mobile
+    const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+
+    // Only detect OS for desktop devices
+    if (!isMobile) {
+      if (platform.includes('mac') || userAgent.includes('mac')) {
+        setDetectedOS('macOS');
+      } else if (platform.includes('win') || userAgent.includes('win')) {
+        setDetectedOS('Windows');
+      } else if (platform.includes('linux') || userAgent.includes('linux')) {
+        setDetectedOS('Linux');
+      }
     }
 
     // Fetch latest release version from GitHub API
