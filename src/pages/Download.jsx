@@ -3,7 +3,8 @@ import TuxIcon from '../components/TuxIcon';
 
 const Download = () => {
   const [detectedOS, setDetectedOS] = useState(null);
-  const version = 'v0.1.17';
+  const [version, setVersion] = useState('v0.1.17'); // Fallback version
+  const [isLoading, setIsLoading] = useState(true);
   const baseUrl = `https://github.com/OpenBio-OS/Laboratory-Information-Management-System/releases/download/${version}`;
 
   useEffect(() => {
@@ -17,7 +18,24 @@ const Download = () => {
     } else if (platform.includes('linux') || userAgent.includes('linux')) {
       setDetectedOS('Linux');
     }
+
+    // Fetch latest release version from GitHub API
+    fetch('https://api.github.com/repos/OpenBio-OS/Laboratory-Information-Management-System/releases/latest')
+      .then(response => response.json())
+      .then(data => {
+        if (data.tag_name) {
+          setVersion(data.tag_name);
+        }
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Failed to fetch latest version:', error);
+        setIsLoading(false);
+      });
   }, []);
+
+  // Remove 'v' prefix from version for filenames
+  const versionNumber = version.replace(/^v/, '');
 
   const versions = [
     {
@@ -28,7 +46,7 @@ const Download = () => {
         </svg>
       ),
       description: 'Apple Silicon',
-      link: `${baseUrl}/openbio_0.1.17_aarch64.dmg`, // Defaulting to dmg for simplicity, often universal or user knows. Tauri usually produces separate. Providing universal-ish link or primary silicon.
+      link: `${baseUrl}/openbio_${versionNumber}_aarch64.dmg`,
       note: 'For macOS 11+',
       id: 'macOS'
     },
@@ -40,7 +58,7 @@ const Download = () => {
         </svg>
       ),
       description: 'Windows 10/11 (64-bit)',
-      link: `${baseUrl}/openbio_0.1.17_x64-setup.exe`,
+      link: `${baseUrl}/openbio_${versionNumber}_x64-setup.exe`,
       note: '.exe installer',
       id: 'Windows'
     },
@@ -48,7 +66,7 @@ const Download = () => {
       os: 'Linux',
       icon: <TuxIcon className="w-12 h-12" />,
       description: 'AppImage & .deb',
-      link: `${baseUrl}/openbio_0.1.17_amd64.AppImage`,
+      link: `${baseUrl}/openbio_${versionNumber}_amd64.AppImage`,
       note: 'Works on Ubuntu, Fedora, etc.',
       id: 'Linux'
     },
