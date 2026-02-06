@@ -63,7 +63,7 @@ const Download = () => {
           <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
         </svg>
       ),
-      description: 'Windows 10/11 (64-bit)',
+      description: 'Windows 11 (64-bit)',
       link: `${baseUrl}/openbio_${versionNumber}_x64-setup.exe`,
       note: '.exe installer',
       id: 'Windows'
@@ -90,7 +90,7 @@ const Download = () => {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:gap-x-8">
+        <div className="mt-16 grid gap-8 md:grid-cols-3 lg:gap-x-8">
           {versions.map((version) => (
             <div
               key={version.os}
@@ -117,7 +117,7 @@ const Download = () => {
                   : 'bg-gray-800 hover:bg-gray-700 text-white'
                   }`}
               >
-                Download Direct
+                Download
               </a>
               <p className="mt-4 text-xs text-gray-500">{version.note}</p>
             </div>
