@@ -34,7 +34,7 @@ const Trial = () => {
                       type="email"
                       name="email"
                       id="email"
-                      className="block w-full py-3 text-base rounded-md placeholder-gray-500 shadow-sm focus:ring-primary focus:border-primary sm:flex-1 border-gray-700 bg-gray-900 text-white px-4"
+                      className="block w-full py-3 text-base rounded-md placeholder-gray-500 shadow-sm ring-primary/55 border-primary/55 focus:ring-primary focus:border-primary sm:flex-1 bg-gray-900 text-white px-4"
                       placeholder="Enter your email"
                     />
                     <button
