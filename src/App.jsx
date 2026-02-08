@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -9,8 +9,7 @@ import Licensing from './pages/Licensing';
 
 function App() {
   return (
-    // using HashRouter for GitHub Pages compatibility without extensive server config
-    <HashRouter>
+    <Router>
       <ScrollToTop />
       <Layout>
         <Routes>
@@ -20,7 +19,7 @@ function App() {
           <Route path="/licensing" element={<Licensing />} />
         </Routes>
       </Layout>
-    </HashRouter>
+    </Router>
   );
 }
 

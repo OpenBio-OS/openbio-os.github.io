@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative paths for assets so it works in any subpath on GitHub Pages
+  base: '/', // Changed to absolute '/' to support client-side routing (prevents asset 404s on deep paths)
   build: {
     outDir: 'docs', // GitHub Pages serves from the 'docs' folder,
   },
