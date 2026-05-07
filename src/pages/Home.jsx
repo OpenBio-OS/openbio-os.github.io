@@ -49,8 +49,20 @@ const Home = () => {
       </div>
 
       {/* Feature Section */}
-      <div className="py-24 bg-dark-lighter">
+      <div className="pb-24 pt-12 bg-dark-lighter">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto mb-12 w-full max-w-4xl aspect-video overflow-hidden rounded-xl">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/9H7sC8U0J88?si=J6ta8Fqykrmxn1HB"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+
           <div className="lg:text-center">
             <h2 className="text-base text-primary font-semibold tracking-wide uppercase">Features</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
